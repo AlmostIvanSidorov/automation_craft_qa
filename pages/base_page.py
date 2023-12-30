@@ -8,3 +8,5 @@ class BasePage:
     def open(self):
         self.driver.get(self.url)
     
+    def element_is_visible(self, locator, timeout=5):
+        pass
