@@ -8,7 +8,7 @@ class TextBoxPageLocators:
     PERMANENT_ADDRESS = (By.CSS_SELECTOR, "textarea#permanentAddress")
     SUBMIT_BUTTON = (By.CSS_SELECTOR, "button#submit")
 
-    CREATED_FULL_NAME = (By.CSS_SELECTOR, "#output #userName")
-    CREATED_EMAIL = (By.CSS_SELECTOR, "#output #userEmail")
+    CREATED_FULL_NAME = (By.CSS_SELECTOR, "#output #name")
+    CREATED_EMAIL = (By.CSS_SELECTOR, "#output #email")
     CREATED_CURRENT_ADDRESS = (By.CSS_SELECTOR, "#output #currentAddress")
     CREATED_PERMANENT_ADDRESS = (By.CSS_SELECTOR, "#output #permanentAddress")
