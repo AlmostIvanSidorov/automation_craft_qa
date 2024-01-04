@@ -13,4 +13,7 @@ class TestElements:
             assert output_email == input_email, "the email doesn't match"
             assert output_current_address == input_current_address, "the current address doesn't match"
             assert output_permanent_address == input_permanent_address, "the permanent address doesn't match"
+
+    class TestCheckBox:
+        pass
             
