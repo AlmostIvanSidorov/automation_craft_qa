@@ -1,4 +1,6 @@
-from pages.elements_page import TextBoxPage
+import time
+
+from pages.elements_page import TextBoxPage, CheckBoxPage
 
 class TestElements:
     class TestTextBox:
