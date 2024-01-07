@@ -2,7 +2,7 @@ import time
 import random
 
 from locators.elements_page_locators import TextBoxPageLocators as locators
-from locators.elements_page_locators import CheckBoxPageLocators
+from locators.elements_page_locators import *
 from generator.generator import generated_person
 from pages.base_page import BasePage
 
@@ -78,7 +78,7 @@ class RadioButtonPage(BasePage):
     def __init__(self, driver, url):
         super().__init__(driver, url)
 
-    locators = CheckBoxPageLocators()
+    locators = RadioButtonPageLocators()
 
 
 
