@@ -1,4 +1,5 @@
 import time
+import random
 
 from locators.elements_page_locators import TextBoxPageLocators as locators
 from locators.elements_page_locators import CheckBoxPageLocators
@@ -43,6 +44,32 @@ class CheckBoxPage(BasePage):
 
     def click_random_checkbox(self):
         item_list = self.elements_are_visible(self.locators.ITEM_LIST)
-        for item in item_list:
+
+        count = 21
+
+        while count != 0:
+            item = item_list[random.randint(1,15)]
+            self.go_to_element(item)
             item.click()
+            count -= 1
+
+    def get_checked_checkboxes(self):
+        checked_list = self.elements_are_present(self.locators.CHECKED_BOXES_LOCATOR)
+        data = [] 
+        for box in checked_list:
+            data.append(box.find_element("xpath", self.locators.TITLE_ITEM).text.replace(' ', '').replace(".doc", "").lower().replace("file","File"))
+
+        return data
+    
+    def return_result(self):
+        result_text_list = []
+
+        result_list = self.elements_are_present(self.locators.EXPECTED_RESULT_LOCATOR)
+        for item in result_list:
+            result_text_list.append(item.text)
+
+        return result_text_list
+
+
+
 

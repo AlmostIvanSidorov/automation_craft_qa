@@ -22,7 +22,13 @@ class TestElements:
             check_box_page.open()
             check_box_page.open_full_list()
             check_box_page.click_random_checkbox()
+            input_checkboxes = check_box_page.get_checked_checkboxes()
 
-            time.sleep(5)
+            output_result = check_box_page.return_result()
+            print(input_checkboxes)
+            print(output_result)
+            assert input_checkboxes == output_result, "marked checkboxes are not equal to shown checkboxes "
+
+            time.sleep(3)
 
             
