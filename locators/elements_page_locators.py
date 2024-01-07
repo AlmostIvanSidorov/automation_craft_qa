@@ -22,4 +22,7 @@ class CheckBoxPageLocators:
 
     TITLE_ITEM = (".//ancestor::span[@class='rct-text']")
 
+class RadioButtonPageLocators:
+    pass
+
 
