@@ -25,8 +25,6 @@ class TestElements:
             input_checkboxes = check_box_page.get_checked_checkboxes()
 
             output_result = check_box_page.return_result()
-            print(input_checkboxes)
-            print(output_result)
             assert input_checkboxes == output_result, "marked checkboxes are not equal to shown checkboxes "
 
             time.sleep(3)
