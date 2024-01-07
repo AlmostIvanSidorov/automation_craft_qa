@@ -37,6 +37,9 @@ class TextBoxPage(BasePage):
     
 class CheckBoxPage(BasePage):
 
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
     locators = CheckBoxPageLocators()
 
     def open_full_list(self):
@@ -70,6 +73,12 @@ class CheckBoxPage(BasePage):
 
         return result_text_list
 
+class RadioButtonPage(BasePage):
+
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = CheckBoxPageLocators()
 
 
 

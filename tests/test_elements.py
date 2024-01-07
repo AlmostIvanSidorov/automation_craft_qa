@@ -1,6 +1,6 @@
 import time
 
-from pages.elements_page import TextBoxPage, CheckBoxPage
+from pages.elements_page import *
 
 class TestElements:
     class TestTextBox:
@@ -28,8 +28,9 @@ class TestElements:
             assert input_checkboxes == output_result, "marked checkboxes are not equal to shown checkboxes "
 
     class TestRadioButton:
-            # Branch creation
-            pass
+        def test_radio_button(self, driver):
+            radio_button_page = RadioButtonPage(driver, "https://demoqa.com/radio-button")
+            radio_button_page.open()
 
             time.sleep(3)
 
