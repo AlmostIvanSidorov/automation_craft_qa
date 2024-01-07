@@ -28,6 +28,7 @@ class TestElements:
             assert input_checkboxes == output_result, "marked checkboxes are not equal to shown checkboxes "
 
     class TestRadioButton:
+            # Branch creation
             pass
 
             time.sleep(3)
