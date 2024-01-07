@@ -27,6 +27,9 @@ class TestElements:
             output_result = check_box_page.return_result()
             assert input_checkboxes == output_result, "marked checkboxes are not equal to shown checkboxes "
 
+    class TestRadioButton:
+            pass
+
             time.sleep(3)
 
             
