@@ -80,5 +80,22 @@ class RadioButtonPage(BasePage):
 
     locators = RadioButtonPageLocators()
 
+    def click_random_button(self):
+        buttons_list = self.elements_are_visible(self.locators.RADIO_BUTTONS)
+
+        clicked_button = buttons_list[random.randint(0,2)]
+
+        clicked_button.click()
+
+        return clicked_button.text
+    
+    def selected_button(self):
+        return self.element_is_visible(self.locators.SELECTED_BUTTON).text
+
+
+
+
+
+
 
 
