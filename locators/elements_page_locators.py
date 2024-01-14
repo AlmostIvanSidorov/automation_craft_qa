@@ -26,4 +26,13 @@ class RadioButtonPageLocators:
     RADIO_BUTTONS = (By.CSS_SELECTOR, 'label.custom-control-label')
     SELECTED_BUTTON = (By.CSS_SELECTOR, 'span.text-success')
 
+class WebTablePageLocators:
+    ADD_BUTTON =  (By.CSS_SELECTOR, 'button#addNewRecordButton')
+    FIRST_NAME_INPUT = (By.CSS_SELECTOR, 'input#firstName')
+    LAST_NAME_INPUT = (By.CSS_SELECTOR, 'input#lastName')
+    EMAIL_INPUT = (By.CSS_SELECTOR, 'input#userEmail')
+    AGE_INPUT = (By.CSS_SELECTOR, 'input#age')
+    SALARY_INPUT = (By.CSS_SELECTOR, 'input#salary')
+    DEPARTMENT_INPUT = (By.CSS_SELECTOR, 'input#department')
+    SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button#submit')
 

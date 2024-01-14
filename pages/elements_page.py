@@ -91,6 +91,41 @@ class RadioButtonPage(BasePage):
     
     def selected_button(self):
         return self.element_is_visible(self.locators.SELECTED_BUTTON).text
+    
+class WebTablePage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = WebTablePageLocators()
+
+    def add_new_persons(self, count=None):
+        if count is None:
+            count = random.randint(1,10)
+
+        while count != 0:
+
+            self.element_is_visible(self.locators.ADD_BUTTON).click()
+
+            person_info = next(generated_person())
+            firstname = person_info.firstname
+            lastname = person_info.lastname
+            email = person_info.email
+            age = person_info.age
+            salary = person_info.salary
+            department = person_info.department
+            self.element_is_visible(self.locators.FIRST_NAME_INPUT).send_keys(firstname)
+            self.element_is_visible(self.locators.LAST_NAME_INPUT).send_keys(lastname)
+            self.element_is_visible(self.locators.EMAIL_INPUT).send_keys(email)
+            self.element_is_visible(self.locators.AGE_INPUT).send_keys(age)
+            self.element_is_visible(self.locators.SALARY_INPUT).send_keys(salary)
+            self.element_is_visible(self.locators.DEPARTMENT_INPUT).send_keys(department)
+
+            self.element_is_visible(self.locators.SUBMIT_BUTTON).click()
+            count -= 1
+
+
+            return firstname, lastname, email, age, salary, department
+
 
 
 
