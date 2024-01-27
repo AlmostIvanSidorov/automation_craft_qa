@@ -27,6 +27,7 @@ class RadioButtonPageLocators:
     SELECTED_BUTTON = (By.CSS_SELECTOR, 'span.text-success')
 
 class WebTablePageLocators:
+    #add person form
     ADD_BUTTON =  (By.CSS_SELECTOR, 'button#addNewRecordButton')
     FIRST_NAME_INPUT = (By.CSS_SELECTOR, 'input#firstName')
     LAST_NAME_INPUT = (By.CSS_SELECTOR, 'input#lastName')
@@ -35,4 +36,8 @@ class WebTablePageLocators:
     SALARY_INPUT = (By.CSS_SELECTOR, 'input#salary')
     DEPARTMENT_INPUT = (By.CSS_SELECTOR, 'input#department')
     SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button#submit')
+
+    #tables
+
+    FULL_PEOPLE_LIST = (By.CSS_SELECTOR, "div.rt-tr-group")
 
