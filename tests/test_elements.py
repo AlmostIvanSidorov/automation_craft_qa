@@ -42,15 +42,43 @@ class TestElements:
     class TestWebTable:
 
         def test_web_table_add_person(self, driver):
-                web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
-                web_table_page.open()
-                new_person = web_table_page.add_new_persons(count=1)
-                table_result = web_table_page.check_new_added_person()
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            new_person = web_table_page.add_new_persons(count=1)
+            table_result = web_table_page.check_new_added_person()
 
-                print(new_person)
-                print(table_result)
+            assert new_person in table_result
 
-                assert new_person in table_result
+        def test_web_table_add_two_persons(self, driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            web_table_page.add_new_persons(count=2)
+
+            table_result = web_table_page.check_new_added_person()
+
+            number_of_not_empty_raws = 0
+
+            for item in table_result:
+                if item != ['       ']:
+                    number_of_not_empty_raws += 1
+
+            assert number_of_not_empty_raws == 5, "some persons were not added"
+
+        def test_web_table_search_persons(self, driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            key_word = web_table_page.add_new_persons(count=1)[random.randint(0,5)]
+            web_table_page.search_some_person(key_word)
+            found_person = web_table_page.check_search_person()
+            print(found_person)
+            print(key_word)
+
+            assert key_word in found_person 
+
+
+
+
+
 
 
             
