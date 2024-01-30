@@ -142,6 +142,43 @@ class WebTablePage(BasePage):
         row = delete_button.find_element("xpath", self.locators.RAW_PARENT)
 
         return row.text.splitlines()
+    
+    def update_person_info(self):
+        person_info = next(generated_person())
+        age = person_info.age
+        self.element_is_visible(self.locators.UPDATE_BUTTON).click()
+        self.element_is_visible(self.locators.AGE_INPUT).clear()
+        self.element_is_visible(self.locators.AGE_INPUT).send_keys(age)
+        self.element_is_visible(self.locators.SUBMIT_BUTTON).click()
+        
+        return str(age)
+    
+    def delete_person(self):
+        self.element_is_visible(self.locators.DELETE_BUTTON).click()
+        time.sleep(1)
+
+    def check_delete(self):
+        return self.element_is_present(self.locators.NO_RAWS_ELEMENT).text
+    
+    def select_up_to_some_rows(self):
+        count = [5, 10, 20, 25]
+        data = []
+        for x in count:
+            select_row_number = self.element_is_visible(self.locators.SELECT_ROW_NUMBER)
+            self.go_to_element(select_row_number)
+            select_row_number.click()
+            self.element_is_visible((By.CSS_SELECTOR,f'option[value="{x}"]')).click()
+            data.append(self.check_count_rows())
+
+        return data
+
+    def check_count_rows(self):
+        list_rows = self.elements_are_present(self.locators.FULL_PEOPLE_LIST)
+        return len(list_rows)
+
+
+
+
 
 
 

@@ -36,12 +36,23 @@ class WebTablePageLocators:
     SALARY_INPUT = (By.CSS_SELECTOR, 'input#salary')
     DEPARTMENT_INPUT = (By.CSS_SELECTOR, 'input#department')
     SUBMIT_BUTTON = (By.CSS_SELECTOR, 'button#submit')
+    NO_RAWS_ELEMENT = (By.XPATH,".//div[text()='No rows found']")
 
     #tables
 
     FULL_PEOPLE_LIST = (By.CSS_SELECTOR, "div.rt-tr-group")
 
     SEARCH_INPUT = (By.CSS_SELECTOR,"input#searchBox")
-    DELETE_BUTTON = (By.CSS_SELECTOR,"span[title='Delete']")
     RAW_PARENT = ".//ancestor::div[@class='rt-tr-group']"
+
+    #update
+    UPDATE_BUTTON = (By.CSS_SELECTOR, "span.mr-2")
+
+    #delete
+    DELETE_BUTTON = (By.CSS_SELECTOR,"span[title='Delete']")
+
+    #count
+    SELECT_ROW_NUMBER = (By.CSS_SELECTOR, "select[aria-label='rows per page']")
+
+    
 

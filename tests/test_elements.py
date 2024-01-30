@@ -1,4 +1,5 @@
 import time
+import pytest
 
 from pages.elements_page import *
 
@@ -70,12 +71,36 @@ class TestElements:
             key_word = web_table_page.add_new_persons(count=1)[random.randint(0,5)]
             web_table_page.search_some_person(key_word)
             found_person = web_table_page.check_search_person()
-            print(found_person)
-            print(key_word)
 
-            assert key_word in found_person 
+            assert key_word in found_person
 
+        def test_web_table_update_person_info(self, driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            lastname = web_table_page.add_new_persons(count=1)[1]
+            web_table_page.search_some_person(lastname)
+            age = web_table_page.update_person_info()
+            row = web_table_page.check_search_person()
 
+            assert age in row, "raw with new age was not found"
+
+        def test_web_table_delete_person(self, driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            email = web_table_page.add_new_persons(count=1)[3]
+            web_table_page.search_some_person(email)
+            web_table_page.delete_person()
+            text = web_table_page.check_delete()
+            
+            assert text == 'No rows found', "row was not deleted"
+
+        @pytest.mark.xfail(reason="doesn't see option window")
+        def test_web_table_change_row_number(self, driver):
+            web_table_page = WebTablePage(driver, 'https://demoqa.com/webtables')
+            web_table_page.open()
+            count = web_table_page.select_up_to_some_rows()
+
+            assert count == [5, 10, 20, 25], "row number was not change correct"
 
 
 
