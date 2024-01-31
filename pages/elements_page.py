@@ -176,6 +176,28 @@ class WebTablePage(BasePage):
         list_rows = self.elements_are_present(self.locators.FULL_PEOPLE_LIST)
         return len(list_rows)
 
+class ButtonPage(BasePage):
+
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = ButtonPageLocators()
+
+    def click_different_button(self, type_click):
+        if type_click == "double":
+            self.action_double_click(self.element_is_visible(self.locators.DOUBLE_BUTTON))
+            return self.element_is_present(self.locators.DOUBLE_CLICK_RESULT).text
+
+        elif type_click == "right":
+            self.action_right_click(self.element_is_visible(self.locators.RIGHT_BUTTON))
+            return self.element_is_present(self.locators.RIGHT_CLICK_RESULT).text 
+
+        elif type_click == "click":
+            self.element_is_visible(self.locators.CLICK_BUTTON).click()
+            return self.element_is_present(self.locators.CLICK_RESULT).text
+
+
+
 
 
 

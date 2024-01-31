@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains 
 
 class BasePage:
     def __init__(self, driver, url):
@@ -48,4 +49,15 @@ class BasePage:
     
     def go_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def action_double_click(self, element):
+        action = ActionChains(self, self.driver)
+        action.double_click(element)
+        action.perform()
+
+        
+    def action_right_click(self, element):
+        action = ActionChains(self, self.driver)
+        action.context_click(element)
+        action.perform()
 

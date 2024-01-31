@@ -54,5 +54,21 @@ class WebTablePageLocators:
     #count
     SELECT_ROW_NUMBER = (By.CSS_SELECTOR, "select[aria-label='rows per page']")
 
+class ButtonPageLocators:
+
+    DOUBLE_BUTTON = (By.CSS_SELECTOR, "button#doubleClickBtn")
+
+    RIGHT_BUTTON = (By.CSS_SELECTOR, "button#rightClickBtn")
+
+    CLICK_BUTTON = (By.CSS_SELECTOR, "button#HmP7s")
+
+    DOUBLE_CLICK_RESULT = (By.CSS_SELECTOR, "p#doubleClickMessage") # You have done a double click
+
+    RIGHT_CLICK_RESULT = (By.CSS_SELECTOR, "p#rightClickMessage") # You have done a right click
+
+    CLICK_RESULT = (By.CSS_SELECTOR, "p#dynamicClickMessage") # You have done a dynamic click
+
+
+
     
 
