@@ -60,7 +60,7 @@ class ButtonPageLocators:
 
     RIGHT_BUTTON = (By.CSS_SELECTOR, "button#rightClickBtn")
 
-    CLICK_BUTTON = (By.CSS_SELECTOR, "button#HmP7s")
+    CLICK_BUTTON = (By.XPATH, ".//button[text()=\"Click Me\"]")
 
     DOUBLE_CLICK_RESULT = (By.CSS_SELECTOR, "p#doubleClickMessage") # You have done a double click
 

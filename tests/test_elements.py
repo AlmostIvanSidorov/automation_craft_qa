@@ -102,21 +102,21 @@ class TestElements:
 
             assert count == [5, 10, 20, 25], "row number was not change correct"
 
-class TestButtonPage:
+    class TestButtonPage:
 
-    def test_different_clicks_on_buttons(self, driver):
-            button_page = ButtonPage(driver, 'https://demoqa.com/buttons')
-            button_page.open()
+        def test_different_clicks_on_buttons(self, driver):
+                button_page = ButtonPage(driver, 'https://demoqa.com/buttons')
+                button_page.open()
 
-            double = button_page.click_different_button("double")
+                double = button_page.click_different_button("double")
 
-            right = button_page.click_different_button("right")
+                right = button_page.click_different_button("right")
 
-            click = button_page.click_different_button("click")
+                click = button_page.click_different_button("click")
 
-            assert double == "You have done a double click", "You have not done a double click"
-            assert right == "You have done a right click", "You have not done a right click"
-            assert click == "You have done a dynamic click", "You have not done a dynamic click"
+                assert double == "You have done a double click", "You have not done a double click"
+                assert right == "You have done a right click", "You have not done a right click"
+                assert click == "You have done a dynamic click", "You have not done a dynamic click"
             
 
 

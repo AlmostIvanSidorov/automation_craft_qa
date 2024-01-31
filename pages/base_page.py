@@ -51,13 +51,13 @@ class BasePage:
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def action_double_click(self, element):
-        action = ActionChains(self, self.driver)
+        action = ActionChains(self.driver)
         action.double_click(element)
         action.perform()
 
         
     def action_right_click(self, element):
-        action = ActionChains(self, self.driver)
+        action = ActionChains(self.driver)
         action.context_click(element)
         action.perform()
 
