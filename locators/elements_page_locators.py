@@ -74,6 +74,13 @@ class LinksPageLocators:
 
     BAD_REQUEST = (By.CSS_SELECTOR, "a#bad-request")
 
+class UploadDownloadPageLocators:
+
+    UPLOAD_FILE = (By.CSS_SELECTOR, 'input#uploadFile')
+    UPLOADED_FILE= (By.CSS_SELECTOR, 'p#uploadedFilePath')
+
+
+
 
 
     
