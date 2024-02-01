@@ -105,18 +105,32 @@ class TestElements:
     class TestButtonPage:
 
         def test_different_clicks_on_buttons(self, driver):
-                button_page = ButtonPage(driver, 'https://demoqa.com/buttons')
-                button_page.open()
+            button_page = ButtonPage(driver, 'https://demoqa.com/buttons')
+            button_page.open()
 
-                double = button_page.click_different_button("double")
+            double = button_page.click_different_button("double")
 
-                right = button_page.click_different_button("right")
+            right = button_page.click_different_button("right")
 
-                click = button_page.click_different_button("click")
+            click = button_page.click_different_button("click")
 
-                assert double == "You have done a double click", "You have not done a double click"
-                assert right == "You have done a right click", "You have not done a right click"
-                assert click == "You have done a dynamic click", "You have not done a dynamic click"
+            assert double == "You have done a double click", "You have not done a double click"
+            assert right == "You have done a right click", "You have not done a right click"
+            assert click == "You have done a dynamic click", "You have not done a dynamic click"
+
+    class TestLinksPage:
+
+        def test_check_link(self,driver):
+            links_page = LinksPage(driver, 'https://demoqa.com/links')
+            links_page.open()
+            link_href, current_url = links_page.check_new_tab_simple_link()
+            assert link_href == current_url, "the link is broken or url is incorrect"
+
+        def test_broken_link(self, driver):
+            links_page = LinksPage(driver, 'https://demoqa.com/links')
+            links_page.open()
+            response_code = links_page.check_broken_link("https://demoqa.com/bad-request")
+            assert response_code == 400, "status code is not 400"
             
 
 

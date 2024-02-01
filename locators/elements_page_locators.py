@@ -68,6 +68,12 @@ class ButtonPageLocators:
 
     CLICK_RESULT = (By.CSS_SELECTOR, "p#dynamicClickMessage") # You have done a dynamic click
 
+class LinksPageLocators:
+
+    SIMPLE_LINK = (By.CSS_SELECTOR, "a#simpleLink")
+
+    BAD_REQUEST = (By.CSS_SELECTOR, "a#bad-request")
+
 
 
     
