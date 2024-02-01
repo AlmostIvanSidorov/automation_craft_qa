@@ -79,6 +79,8 @@ class UploadDownloadPageLocators:
     UPLOAD_FILE = (By.CSS_SELECTOR, 'input#uploadFile')
     UPLOADED_FILE= (By.CSS_SELECTOR, 'p#uploadedFilePath')
 
+    DOWNLOAD_FILE = (By.CSS_SELECTOR, 'a#downloadButton')
+
 
 
 

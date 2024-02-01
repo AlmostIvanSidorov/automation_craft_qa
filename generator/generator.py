@@ -19,9 +19,9 @@ def generated_person():
         permanent_address = faker_ru.address(),
     )
 
-def generated_file():
+def generated_file(format, file_content, write_mode):
     current_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))  # получаем путь к директории текущего исполняемого файла и выходим в папку на один уровень выше. Получается, что это корневая папка если структура проекта, как в видео
-    file_path = os.path.join(current_dir, f'test_file_{random.randint(1, 999)}.txt')  # добавляем к этому пути имя файла
-    with open(file_path, "w+") as file:
-        file.write(f'Hello World {random.randint(1, 999)}')
+    file_path = os.path.join(current_dir, f'test_file_{random.randint(1, 999)}.{format}')  # добавляем к этому пути имя файла
+    with open(file_path, write_mode) as file:
+        file.write(file_content)
     return file_path

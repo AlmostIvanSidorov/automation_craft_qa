@@ -1,3 +1,4 @@
+import base64
 import os
 import time
 import random
@@ -231,12 +232,23 @@ class UploadDownloadPage(BasePage):
     locators = UploadDownloadPageLocators()
 
     def upload_file(self):
-        path = generated_file()
+        file_content = f'Hello World {random.randint(1, 999)}'
+        path = generated_file("txt", file_content, "w+")
         self.element_is_present(self.locators.UPLOAD_FILE).send_keys(path)
         os.remove(path)
         text = self.element_is_present(self.locators.UPLOADED_FILE).text.split('\\')[-1]
         file_name = path.split('/')[-1]
         return file_name, text
+    
+    def download_file(self):
+        link = self.element_is_present(self.locators.DOWNLOAD_FILE).get_attribute('href')
+        link_b = base64.b64decode(link)
+        offset = link_b.find(b'\xff\xd8')
+        path_name_file = generated_file("jpg", link_b[offset:], "wb+")
+        check_file = os.path.exists(path_name_file)
+        os.remove(path_name_file)
+        return check_file
+
 
 
 
