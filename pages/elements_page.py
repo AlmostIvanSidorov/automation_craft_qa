@@ -267,6 +267,7 @@ class DynamicPropertiesPage(BasePage):
         return visible_button
     
     def check_enable_button(self):
+        time.sleep(5)
         return self.element_is_clickable(self.locators.ENABLE_BUTTON)
    
         
