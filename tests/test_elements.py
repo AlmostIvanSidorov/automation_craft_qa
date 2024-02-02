@@ -138,13 +138,44 @@ class TestElements:
             upload_download_page = UploadDownloadPage(driver, 'https://demoqa.com/upload-download')
             upload_download_page.open()
             file_name, result = upload_download_page.upload_file()
-            assert file_name == result, "the file has no been uploaded"
+            assert file_name == result, "the file has not been uploaded"
 
         def test_download_file(self, driver):
             upload_download_page = UploadDownloadPage(driver, 'https://demoqa.com/upload-download')
             upload_download_page.open()
             check = upload_download_page.download_file()
-            assert check is True,"the file has no been downloaded"
+            assert check is True,"the file has not been downloaded"
+
+    class TestDynamicProperties:
+
+        def test_color_button(self,driver):
+            dynamic_properties_page = DynamicPropertiesPage(driver, 'https://demoqa.com/dynamic-properties')
+            dynamic_properties_page.open()
+            color_button_after = dynamic_properties_page.check_change_of_color()
+            assert str(color_button_after) == 'rgba(220, 53, 69, 1)', "button did not change color after 5 sec"
+
+        def test_check_appear_button(self, driver):
+            dynamic_properties_page = DynamicPropertiesPage(driver, 'https://demoqa.com/dynamic-properties')
+            dynamic_properties_page.open()
+            appear_button = dynamic_properties_page.check_appear_button()
+            assert appear_button.text == "Visible After 5 Seconds", "button did not appear color after 5 sec"
+
+        def test_check_enable_button(self, driver):
+            dynamic_properties_page = DynamicPropertiesPage(driver, 'https://demoqa.com/dynamic-properties')
+            dynamic_properties_page.open()
+            enable_button = dynamic_properties_page.check_enable_button()
+            print(enable_button), "button did not become clickable color after 5 sec"
+
+
+
+
+
+
+    
+
+    
+
+
 
 
 

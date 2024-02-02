@@ -248,6 +248,35 @@ class UploadDownloadPage(BasePage):
         check_file = os.path.exists(path_name_file)
         os.remove(path_name_file)
         return check_file
+    
+class DynamicPropertiesPage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = DynamicPropertiesPageLocators()
+
+    def check_change_of_color(self):
+        color_button = self.element_is_present(self.locators.COLOR_CHANGE_BUTTON)
+        time.sleep(5)
+        color_button_after = color_button.value_of_css_property('color')
+        return color_button_after
+    
+    def check_appear_button(self):
+        time.sleep(5)
+        visible_button = self.element_is_visible(self.locators.VISIBLE_AFTER_FIVE_SEC_BUTTON)
+        return visible_button
+    
+    def check_enable_button(self):
+        return self.element_is_clickable(self.locators.ENABLE_BUTTON)
+   
+        
+
+    
+
+
+
+
+
 
 
 
