@@ -164,7 +164,7 @@ class TestElements:
             dynamic_properties_page = DynamicPropertiesPage(driver, 'https://demoqa.com/dynamic-properties')
             dynamic_properties_page.open()
             enable_button = dynamic_properties_page.check_enable_button()
-            print(enable_button), "button did not become clickable color after 5 sec"
+            assert enable_button is not None, "button did not become clickable color after 5 sec"
 
 
 
