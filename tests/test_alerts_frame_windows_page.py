@@ -17,3 +17,8 @@ class TestAlertsFrameWindow:
             test_result = browser_window_page.checked_opened_new_window()
             assert test_result == 'This is a sample page', 'the new window has not been opened or incorrect window has been opened'
 
+    class TestAlerts:
+        def test_see_alert(self, driver):
+            alert_page = BrowserWindowPage(driver, "https://demoqa.com/alerts")
+            alert_page.open()
+
