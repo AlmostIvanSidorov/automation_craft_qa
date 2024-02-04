@@ -31,4 +31,4 @@ class AlertsPage(BasePage):
     def check_see_alert(self):
         self.element_is_visible(self.locators.SEE_ALERT_BUTTON).click()
         alert_window = self.driver.switch_to.alert
-        print(alert_window)
+        print(alert_window.text)
