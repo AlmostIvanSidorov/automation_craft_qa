@@ -19,6 +19,8 @@ class TestAlertsFrameWindow:
 
     class TestAlerts:
         def test_see_alert(self, driver):
-            alert_page = BrowserWindowPage(driver, "https://demoqa.com/alerts")
+            alert_page = AlertsPage(driver, "https://demoqa.com/alerts")
             alert_page.open()
+            alert_page.check_see_alert()
+            time.sleep(4)
 
