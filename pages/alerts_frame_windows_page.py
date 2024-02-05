@@ -87,5 +87,23 @@ class FramesPage(BasePage):
             self.driver.switch_to.default_content()
 
             return [text, width, height]
+        
+class NestedFramesPage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = NestedFramesLocators()
+
+    def __check_frame_text(self, frame_locator, text_locator):
+        frame = self.element_is_present(frame_locator)
+        self.driver.switch_to.frame(frame)
+        text = self.element_is_present(text_locator).text
+        return text
+
+    def check_nested_frames(self):
+        parent_text = self.__check_frame_text(self.locators.PARENT_FRAME, self.locators.PARENT_TEXT)
+        child_text = self.__check_frame_text(self.locators.CHILD_FRAME, self.locators.CHILD_TEXT) # parent_text switch us to parent frame so we can switch to child frame
+
+        return child_text, parent_text 
 
 

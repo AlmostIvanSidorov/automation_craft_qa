@@ -52,5 +52,13 @@ class TestAlertsFrameWindow:
             assert result_frame1 == ['This is a sample page', '500px', '350px'], "The frame1 doesn't exists"
             assert result_frame2 == ['This is a sample page', '100px', '100px'], "The frame2 doesn't exists"
 
+    class TestNestedFrames:
+        def test_nested_frames(self, driver):
+            nested_frame_page = NestedFramesPage(driver, "https://demoqa.com/nestedframes")
+            nested_frame_page.open()
+            child_text, parent_text = nested_frame_page.check_nested_frames()
+            assert child_text == 'Child Iframe', "The child frame doesn't exists"
+            assert parent_text == 'Parent frame', "The parent frame doesn't exists"
+
 
 
