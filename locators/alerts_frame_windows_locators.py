@@ -7,6 +7,11 @@ class BrowserWindowPageLocators:
 
 class AlertsLocators:
     SEE_ALERT_BUTTON = (By.CSS_SELECTOR, 'button#alertButton')
-    APPEAR_ALTER_AFTER_5_SEC_BUTTON = (By.CSS_SELECTOR, 'button#timerAlertButton')
-    CONFIRM_BOX_ALLERT_BUTTON = (By.CSS_SELECTOR, 'button#confirmButton')
+    APPEAR_ALERT_AFTER_5_SEC_BUTTON = (By.CSS_SELECTOR, 'button#timerAlertButton')
+    CONFIRM_BOX_ALERT_BUTTON = (By.CSS_SELECTOR, 'button#confirmButton')
     PROMPT_BOX_ALERT_BUTTON = (By.CSS_SELECTOR, 'button#promtButton')
+
+    CONFIRM_BOX_ALERT_RESULT = (By.CSS_SELECTOR, 'span#confirmResult')
+    PROMPT_RESULT = (By.CSS_SELECTOR, 'span#promptResult')
+
+
