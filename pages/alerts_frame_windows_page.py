@@ -56,3 +56,36 @@ class AlertsPage(BasePage):
         alert_window.accept()
         text_result = self.element_is_present(self.locators.PROMPT_RESULT).text
         return text, text_result
+    
+class FramesPage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = FramesLocators()
+
+    def check_frame(self, frame_number = None):
+        if frame_number is None:
+            print('Default frame was taken')
+            frame_number = 'frame1'
+
+        if frame_number == 'frame1':
+            frame = self.element_is_present(self.locators.FIRST_FRAME)
+            width = frame.get_attribute('width')
+            height = frame.get_attribute('height')
+            self.driver.switch_to.frame(frame)
+            text = self.element_is_present(self.locators.TITLE_FRAME).text
+            self.driver.switch_to.default_content()
+
+            return [text, width, height]
+        
+        if frame_number == 'frame2':
+            frame = self.element_is_present(self.locators.SECOND_FRAME)
+            width = frame.get_attribute('width')
+            height = frame.get_attribute('height')
+            self.driver.switch_to.frame(frame)
+            text = self.element_is_present(self.locators.TITLE_FRAME).text
+            self.driver.switch_to.default_content()
+
+            return [text, width, height]
+
+
