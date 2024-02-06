@@ -104,6 +104,34 @@ class NestedFramesPage(BasePage):
         parent_text = self.__check_frame_text(self.locators.PARENT_FRAME, self.locators.PARENT_TEXT)
         child_text = self.__check_frame_text(self.locators.CHILD_FRAME, self.locators.CHILD_TEXT) # parent_text switch us to parent frame so we can switch to child frame
 
-        return child_text, parent_text 
+        return child_text, parent_text
+    
+class TestModalPage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = TestModalLocators()
+
+    def __check_modal_dialog(self,window_button, title_content, body_content, close_button):
+        self.element_is_visible(window_button).click()
+        title = self.element_is_visible(title_content).text
+        body = self.element_is_visible(body_content).text
+        self.element_is_visible(close_button).click()
+
+        return title, body
+
+    def check_modal_dialogs(self):
+        title_small, body_small_text = self.__check_modal_dialog(self.locators.SMALL_MODAL_BUTTON,
+                                                                  self.locators.TITLE_SMALL_MODAL,
+                                                                  self.locators.BODY_SMALL_MODAL,
+                                                                  self.locators.CLOSE_SMALL_MODAL_BUTTON)
+        
+        title_large, body_large_text = self.__check_modal_dialog(self.locators.LARGE_MODAL_BUTTON,
+                                                            self.locators.TITLE_LARGE_MODAL,
+                                                            self.locators.BODY_LARGE_MODAL,
+                                                            self.locators.CLOSE_LARGE_MODAL_BUTTON)
+        
+        
+        return [title_small, len(body_small_text)], [title_large, len(body_large_text)]
 
 

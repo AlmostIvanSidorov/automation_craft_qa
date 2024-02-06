@@ -60,5 +60,15 @@ class TestAlertsFrameWindow:
             assert child_text == 'Child Iframe', "The child frame doesn't exists"
             assert parent_text == 'Parent frame', "The parent frame doesn't exists"
 
+    class TestModalDialogs:
+        def test_modal_dialogs(self, driver):
+            modal_dialogs_page = TestModalPage(driver, "https://demoqa.com/modal-dialogs")
+            modal_dialogs_page.open()
+            small, large = modal_dialogs_page.check_modal_dialogs()
+
+            assert small[1] < large[1], 'text from large dialog is less than text from small dialog'
+            assert small[0] == 'Small Modal', 'the header is not "Small Modal"'
+            assert large[0] == 'Large Modal', 'the header is not "Large Modal"'
+
 
 
