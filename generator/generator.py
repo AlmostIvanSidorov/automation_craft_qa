@@ -1,4 +1,4 @@
-from data.data import Person
+from data.data import Color, Person
 from faker import Faker
 import random
 import os
@@ -25,3 +25,8 @@ def generated_file(format, file_content, write_mode):
     with open(file_path, write_mode) as file:
         file.write(file_content)
     return file_path
+
+def generated_color():
+        color_name = ["Red","Blue","Green","Yellow","Purple","Black","White", "Voilet","Indigo", "Magenta",  "Aqua"]
+        color = random.sample(color_name, k=3)
+        return color
