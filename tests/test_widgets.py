@@ -23,8 +23,25 @@ class TestWidgets:
         def test_multiple_complete(self, driver):
             autocomplete_page = AutoCompletePage(driver, 'https://demoqa.com/auto-complete')
             autocomplete_page.open()
-            autocomplete_page.fill_input_multi(2)
-            time.sleep(4)
+            colors, colors_after = autocomplete_page.fill_input_multi(3)
+            assert colors == colors_after, "the added colors were missing in the input"
+
+        def test_remove_value_from_multi(self, driver):
+            autocomplete_page = AutoCompletePage(driver, 'https://demoqa.com/auto-complete')
+            autocomplete_page.open()
+            autocomplete_page.fill_input_multi(3)
+            colors, colors_after = autocomplete_page.remove_value_from_multi()
+            assert colors != colors_after and colors == 0, "value was not deleted"
+
+        def test_fill_single_autocomplete(self, driver):
+            autocomplete_page = AutoCompletePage(driver, 'https://demoqa.com/auto-complete')
+            autocomplete_page.open()
+            color = autocomplete_page.fill_input_single()
+            color_result = autocomplete_page.check_color_in_single()
+            assert color == color_result, "the added colors were missing in the input"
+
+
+            
 
 
             

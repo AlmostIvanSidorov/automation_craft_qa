@@ -26,7 +26,7 @@ def generated_file(format, file_content, write_mode):
         file.write(file_content)
     return file_path
 
-def generated_color():
+def generated_color(colors_number):
         color_name = ["Red","Blue","Green","Yellow","Purple","Black","White", "Voilet","Indigo", "Magenta",  "Aqua"]
-        color = random.sample(color_name, k=3)
+        color = random.sample(color_name, k=colors_number)
         return color
