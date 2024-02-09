@@ -31,4 +31,14 @@ class DatePickerLocators:
     DATE_TIME_SELECT_YEAR_LIST = (By.CSS_SELECTOR, 'div.react-datepicker__year-option')
     DATE_TIME_SELECT_TIME_LIST = (By.CSS_SELECTOR, 'li.react-datepicker__time-list-item')
 
+class SliderPageLocators:
+    INPUT_SLIDER = (By.CSS_SELECTOR, 'input.range-slider')
+    SLIDER_VALUE = (By.CSS_SELECTOR, 'input#sliderValue')
+
+class ProgressBarPageLocators:
+    PROGRESS_BAR_BUTTON = (By.CSS_SELECTOR, 'button#startStopButton')
+    PROGRESS_BAR_VALUE = (By.CSS_SELECTOR, 'div.progress-bar') # aria-valuenow
+
+    
+
 
