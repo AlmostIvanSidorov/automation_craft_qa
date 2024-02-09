@@ -39,6 +39,33 @@ class ProgressBarPageLocators:
     PROGRESS_BAR_BUTTON = (By.CSS_SELECTOR, 'button#startStopButton')
     PROGRESS_BAR_VALUE = (By.CSS_SELECTOR, 'div.progress-bar') # aria-valuenow
 
+class TabsPageLocators:
+
+    TABS_WHAT = (By.CSS_SELECTOR, 'a#demo-tab-what')
+    TABS_WHAT_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-what p')
+    TABS_ORIGIN = (By.CSS_SELECTOR, 'a#demo-tab-origin')
+    TABS_ORIGIN_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-origin p')
+    TABS_USE = (By.CSS_SELECTOR, 'a#demo-tab-use')
+    TABS_USE_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-use p')
+    TABS_MORE = (By.CSS_SELECTOR, 'a#demo-tab-more') 
+    TABS_MORE_CONTENT = (By.CSS_SELECTOR, 'div#demo-tabpane-more')
+
+    tabs = {'What': 
+        {'button': TABS_WHAT,
+            'content': TABS_WHAT_CONTENT},
+        'Origin': 
+        {'button': TABS_ORIGIN,
+            'content': TABS_ORIGIN_CONTENT},
+        'Use': 
+        {'button': TABS_USE,
+            'content': TABS_USE_CONTENT},
+        'More': 
+        {'button': TABS_MORE,
+            'content': TABS_MORE_CONTENT}}
+
+
+
+
     
 
 

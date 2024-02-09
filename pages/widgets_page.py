@@ -163,3 +163,19 @@ class ProgressBarPage(BasePage):
         value_after = self.element_is_present(self.locators.PROGRESS_BAR_VALUE).get_attribute('aria-valuenow')
         # value_after = self.element_is_present(self.locators.PROGRESS_BAR_VALUE).text
         return value_after, value_before
+    
+
+class TabsPage(BasePage):
+
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = TabsPageLocators()
+
+    def check_tabs(self, name_tab):
+        button = self.element_is_visible(self.locators.tabs[name_tab]['button'])
+        button.click()
+        content = self.element_is_visible(self.locators.tabs[name_tab]['content']).text
+        return [button.text, len(content)]
+        
+

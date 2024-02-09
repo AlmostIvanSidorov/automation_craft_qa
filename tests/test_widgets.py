@@ -71,6 +71,22 @@ class TestWidgets:
             assert before < after , "progress bar doesn't work correct"
 
 
+    class TestTabsPage:
+
+        def test_tabs(self, driver):
+            tabs = TabsPage(driver, "https://demoqa.com/tabs")
+            tabs.open()
+            tabs_list = ['What', 'Origin', 'Use', 'More']
+
+            for tab_name in tabs_list:
+                tab = tabs.check_tabs(tab_name)
+                assert tab[0] == tab_name and tab[1] != 0, f"The tab {tab_name} was not pressed or the text is missing."
+
+            
+
+
+
+
 
             
 
