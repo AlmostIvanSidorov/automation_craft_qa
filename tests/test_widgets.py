@@ -40,6 +40,22 @@ class TestWidgets:
             color_result = autocomplete_page.check_color_in_single()
             assert color == color_result, "the added colors were missing in the input"
 
+    class TestDatePickerPage:
+
+        def test_change_date(self, driver):
+            date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
+            date_picker_page.open()
+            value_date_before, value_date_after = date_picker_page.select_date()
+            assert value_date_before != value_date_after
+
+        def test_change_date_and_time(self, driver):
+            date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
+            date_picker_page.open()
+            date_picker_page.select_date_and_time()
+            value_date_before, value_date_after = date_picker_page.select_date_and_time()
+            print(value_date_before, value_date_after)
+            assert value_date_before != value_date_after
+
 
             
 
