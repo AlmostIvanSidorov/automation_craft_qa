@@ -178,4 +178,29 @@ class TabsPage(BasePage):
         content = self.element_is_visible(self.locators.tabs[name_tab]['content']).text
         return [button.text, len(content)]
         
+class ToolTipsPage(BasePage):
+
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = ToolTipsPageLocators()
+
+    def get_text_from_tool_tips(self, hover_element, wait_element):
+        element = self.element_is_present(hover_element)
+        self.action_move_to_element(element)
+        time.sleep(1)
+        self.element_is_visible(wait_element)
+        
+        tool_tip_text = self.element_is_visible(self.locators.TOOL_TIPS_INNERS).text
+
+        return tool_tip_text
+    
+    def check_tool_tips(self):
+        tool_tip_text_button = self.get_text_from_tool_tips(self.locators.HOVER_BUTTON, self.locators.TOOL_TIP_HOVER_BUTTON)
+        tool_tip_text_field = self.get_text_from_tool_tips(self.locators.HOVER_FORM, self.locators.TOOL_TIP_HOVER_FORM)
+        tool_tip_text_contrary = self.get_text_from_tool_tips(self.locators.CONTRARY_LINK, self.locators.TOOL_TIP_CONTRARY_LINK)
+        tool_tip_text_section = self.get_text_from_tool_tips(self.locators.SECTION_LINK, self.locators.TOOL_TIP_SECTION_LINK)
+
+        return tool_tip_text_button, tool_tip_text_field, tool_tip_text_contrary, tool_tip_text_section
+
 

@@ -82,6 +82,19 @@ class TestWidgets:
                 tab = tabs.check_tabs(tab_name)
                 assert tab[0] == tab_name and tab[1] != 0, f"The tab {tab_name} was not pressed or the text is missing."
 
+
+    class TestToolTipsPage:
+
+        def test_tool_tips(self, driver):
+            tool_tips_page = ToolTipsPage(driver, "https://demoqa.com/tool-tips")
+            tool_tips_page.open()
+            text_button, text_field, text_contrary, text_section = tool_tips_page.check_tool_tips()
+
+            assert text_button == 'You hovered over the Button', 'hover missing or incorrect content'
+            assert text_field == 'You hovered over the text field', 'hover missing or incorrect content'
+            assert text_contrary == 'You hovered over the Contrary', 'hover missing or incorrect content'
+            assert text_section == 'You hovered over the 1.10.32', 'hover missing or incorrect content'
+
             
 
 
