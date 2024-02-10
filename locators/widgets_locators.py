@@ -78,6 +78,10 @@ class ToolTipsPageLocators:
 
     TOOL_TIPS_INNERS = (By.CSS_SELECTOR, 'div.tooltip-inner')
 
+class MenuPageLocators:
+
+    MENU_ITEM_LIST = (By.CSS_SELECTOR, 'ul#nav li')
+
 
 
 

@@ -95,6 +95,17 @@ class TestWidgets:
             assert text_contrary == 'You hovered over the Contrary', 'hover missing or incorrect content'
             assert text_section == 'You hovered over the 1.10.32', 'hover missing or incorrect content'
 
+
+    class TestMenuPage:
+
+        def test_menu(self, driver):
+            menu_page = MenuPage(driver, "https://demoqa.com/menu")
+            menu_page.open()
+            data = menu_page.check_menu()
+            assert data == ['Main Item 1', 'Main Item 2\nSub Item\nSub Item\nSUB SUB LIST »',
+                             'Sub Item', 'Sub Item', 'SUB SUB LIST »\nSub Sub Item 1\nSub Sub Item 2',
+                               'Sub Sub Item 1', 'Sub Sub Item 2', 'Main Item 3'], "menu items doesn't exist or have not been found"
+
             
 
 
