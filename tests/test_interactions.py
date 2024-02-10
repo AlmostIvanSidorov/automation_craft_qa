@@ -33,3 +33,8 @@ class TestInteractions:
             chosen_element, selected_element = selectable_page.select_grid_item()
             assert chosen_element == selected_element, "element was not clicked"
 
+    class TestResizablePage:
+        def test_resizable(self,driver):
+            resiazable_page = ResizablePage(driver, "https://demoqa.com/resizable")
+            resiazable_page.open()
+

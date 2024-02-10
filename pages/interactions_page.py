@@ -61,6 +61,23 @@ class SelectablePage(BasePage):
     
     def select_grid_item(self):
         return self.__select_item(self.locators.GRID_LIST, self.locators.GRID_ITEM, self.locators.GRID_ITEM_ACTIVE)
+    
+class ResizablePage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = ResizablePageLocators()
+
+    def get_sizes(self, element):
+        size = self.element_is_visible(element).get_attribute('style')
+        width = size
+        length = size
+
+        return width, length
+    
+
+
+
  
 
 
