@@ -17,3 +17,7 @@ class TestInteractions:
             sortable_page.open()
             order_before, order_after = sortable_page.change_grid_order()
             assert order_before != order_after, "the order of the grid has not been changed"
+
+    class TestSelectablePage:
+
+        pass
