@@ -18,6 +18,18 @@ class TestInteractions:
             order_before, order_after = sortable_page.change_grid_order()
             assert order_before != order_after, "the order of the grid has not been changed"
 
+            
     class TestSelectablePage:
 
-        pass
+        def test_selectable_list(self, driver):
+            selectable_page = SelectablePage(driver, "https://demoqa.com/selectable")
+            selectable_page.open()
+            chosen_element, selected_element = selectable_page.select_list_item()
+            assert chosen_element == selected_element, "element was not clicked"
+
+        def test_selectable_grid(self, driver):
+            selectable_page = SelectablePage(driver, "https://demoqa.com/selectable")
+            selectable_page.open()
+            chosen_element, selected_element = selectable_page.select_grid_item()
+            assert chosen_element == selected_element, "element was not clicked"
+
