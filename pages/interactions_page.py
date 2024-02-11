@@ -68,12 +68,33 @@ class ResizablePage(BasePage):
 
     locators = ResizablePageLocators()
 
-    def get_sizes(self, element):
-        size = self.element_is_visible(element).get_attribute('style')
-        width = size
-        length = size
+    def __get_sizes(self, element):
+        size = self.element_is_present(element).get_attribute('style')
+        width = size.split(";")[0].split(":")[1].replace(' ', '')
+        height = size.split(";")[1].split(":")[1].replace(' ', '')
 
-        return width, length
+        return width, height
+    
+    def __change_sizes(self, element, handle, width, height):
+        self.action_drag_and_drop_by_offset(self.element_is_present(handle), width, height)
+        changed_size = self.__get_sizes(element)
+        return changed_size
+    
+    def get_min_max_size_resizable_box(self):
+        max_size = self.__change_sizes(self.locators.RESIZABLE_BOX, self.locators.RESIZABLE_BOX_HANDLE, 400, 200)
+        time.sleep(1)
+        min_size = self.__change_sizes(self.locators.RESIZABLE_BOX, self.locators.RESIZABLE_BOX_HANDLE, -500, -300)
+
+        return min_size, max_size
+    
+    def get_min_max_size_resizable(self):
+        max_size = self.__change_sizes(self.locators.RESIZABLE, self.locators.RESIZABLE_HANDLE, random.randint(1,30), random.randint(1,30))
+        time.sleep(1)
+        min_size = self.__change_sizes(self.locators.RESIZABLE, self.locators.RESIZABLE_HANDLE, random.randint(-20,-1), random.randint(-20,-1))
+
+        return min_size, max_size
+    
+
     
 
 

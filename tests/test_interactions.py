@@ -35,6 +35,15 @@ class TestInteractions:
 
     class TestResizablePage:
         def test_resizable(self,driver):
-            resiazable_page = ResizablePage(driver, "https://demoqa.com/resizable")
-            resiazable_page.open()
+            resizable_page = ResizablePage(driver, "https://demoqa.com/resizable")
+            resizable_page.open()
+            min_sizes, max_sizes = resizable_page.get_min_max_size_resizable()
+            assert min_sizes != max_sizes, "resizable box has not been changed"
+
+        def test_resizable_box(self,driver):
+            resizable_page = ResizablePage(driver, "https://demoqa.com/resizable")
+            resizable_page.open()
+            min_sizes, max_sizes = resizable_page.get_min_max_size_resizable_box()
+            assert min_sizes == ('150px', '150px'), "minimum size is not equal to '150px', '150px'"
+            assert max_sizes == ('500px', '300px'), "maximum size is not equal to '500px', '300px'"
 
