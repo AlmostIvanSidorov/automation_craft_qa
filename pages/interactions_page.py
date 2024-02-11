@@ -95,6 +95,13 @@ class ResizablePage(BasePage):
         return min_size, max_size
     
 
+class DroppablePage(BasePage):
+    def __init__(self, driver, url):
+        super().__init__(driver, url)
+
+    locators = DroppablePageLocators()
+    
+
     
 
 

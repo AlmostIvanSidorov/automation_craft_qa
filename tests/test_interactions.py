@@ -47,3 +47,23 @@ class TestInteractions:
             assert min_sizes == ('150px', '150px'), "minimum size is not equal to '150px', '150px'"
             assert max_sizes == ('500px', '300px'), "maximum size is not equal to '500px', '300px'"
 
+    class TestDroppablePage:
+         
+         def test_simple_droppable(self, driver):
+            droppable_page = DroppablePage(driver, "https://demoqa.com/droppable")
+            droppable_page.open()
+
+         def test_accept_droppable(self, driver):
+            droppable_page = DroppablePage(driver, "https://demoqa.com/droppable")
+            droppable_page.open()
+
+         def test_prevent_propogation_droppable(self, driver):
+            droppable_page = DroppablePage(driver, "https://demoqa.com/droppable")
+            droppable_page.open()
+
+         def test_revert_draggable_droppable(self, driver):
+            droppable_page = DroppablePage(driver, "https://demoqa.com/droppable")
+            droppable_page.open()
+
+             
+
