@@ -31,20 +31,20 @@ class DroppablePageLocators:
 
     SIMPLE_TAB = (By.CSS_SELECTOR, 'a#droppableExample-tab-simple')
     DRAG_ME_SIMPLE = (By.CSS_SELECTOR, 'div#draggable')
-    DROP_ME_SIMPLE = (By.CSS_SELECTOR, 'div#simpleDropContainer div#droppable')
+    DROP_HERE_SIMPLE = (By.CSS_SELECTOR, 'div#simpleDropContainer div#droppable')
 
     # Accept
     ACCEPT_TAB = (By.CSS_SELECTOR, 'a#droppableExample-tab-accept')
     ACCEPTABLE = (By.CSS_SELECTOR, 'div#acceptable')
-    NOT_ACCEPTABLE = (By.CSS_SELECTOR, 'div#notAcceptable#')
+    NOT_ACCEPTABLE = (By.CSS_SELECTOR, 'div#notAcceptable')
     DROP_HERE_ACCEPT = (By.CSS_SELECTOR, '#acceptDropContainer #droppable')
 
     # Prevent Propogation
 
     PREVENT_TAB = (By.CSS_SELECTOR, 'a#droppableExample-tab-preventPropogation')
-    NOT_GREEDY_DROP_BOX_TEXT = (By.XPATH, './/div[@id="notGreedyDropBox"]/p[text()="Outer droppable"]')
+    NOT_GREEDY_DROP_BOX_TEXT = (By.XPATH, './/div[@id="notGreedyDropBox"]/p[text()="Dropped!"]')
     NOT_GREEDY_INNER_BOX = (By.CSS_SELECTOR, 'div#notGreedyInnerDropBox')
-    GREEDY_DROP_BOX_TEXT = (By.XPATH, './/div[@id="notGreedyInnerDropBox"]/p[text()="Inner droppable (not greedy)"]')
+    GREEDY_DROP_BOX_TEXT = (By.XPATH, './/div[@id="greedyDropBox"]/p[text()="Outer droppable"]')
     GREEDY_INNER_BOX = (By.CSS_SELECTOR, 'div#greedyDropBoxInner')
     DRAG_ME_PREVENT = (By.CSS_SELECTOR, 'div#dragBox')
 
